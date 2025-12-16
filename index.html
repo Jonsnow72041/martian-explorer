@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARTIAN EXPLORER</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a0b2e 50%, #2d1b3d 100%);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            font-size: 4em;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a6f, #ff006e, #8338ec);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(255, 107, 107, 0.8)); }
+        }
+        .subtitle {
+            font-size: 1.5em;
+            color: #a0a0ff;
+            margin-bottom: 40px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 107, 107, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(255, 107, 107, 0.8);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3);
+        }
+        .card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #ff6b6b;
+        }
+        .card p {
+            line-height: 1.6;
+            color: #ccc;
+        }
+        .planet {
+            width: 200px;
+            height: 200px;
+            margin: 40px auto;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ff6b6b, #8b0000);
+            box-shadow: 0 0 50px rgba(255, 107, 107, 0.6), inset -20px -20px 50px rgba(0, 0, 0, 0.5);
+            animation: rotate 20s linear infinite, float 3s ease-in-out infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 20px;
+            background: linear-gradient(45deg, #ff006e, #8338ec);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 0, 110, 0.4);
+        }
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.6);
+        }
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 107, 107, 0.3);
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="container">
+        <header>
+            <h1>🚀 MARTIAN EXPLORER</h1>
+            <p class="subtitle">Journey Beyond the Red Planet</p>
+            <div class="planet"></div>
+        </header>
+        <div class="grid">
+            <div class="card">
+                <h3>🌌 Explore</h3>
+                <p>Discover the mysteries of Mars and beyond. Navigate through cosmic wonders and uncharted territories.</p>
+            </div>
+            <div class="card">
+                <h3>🛸 Technology</h3>
+                <p>Cutting-edge space technology meets innovative design. Experience the future of exploration.</p>
+            </div>
+            <div class="card">
+                <h3>⭐ Community</h3>
+                <p>Join thousands of space enthusiasts on this incredible journey. Together, we reach for the stars.</p>
+            </div>
+            <div class="card">
+                <h3>🔭 Research</h3>
+                <p>Advanced astronomical research and data analysis. Pushing the boundaries of human knowledge.</p>
+            </div>
+            <div class="card">
+                <h3>🌠 Innovation</h3>
+                <p>Revolutionary ideas that transform science fiction into reality. The future is now.</p>
+            </div>
+            <div class="card">
+                <h3>🎯 Mission</h3>
+                <p>Our mission: Make space accessible to everyone. Democratizing the final frontier.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin: 60px 0;">
+            <a href="#" class="cta-button">Launch Mission</a>
+            <a href="#" class="cta-button">Join Crew</a>
+        </div>
+        <footer>
+            <p>🌍 MARTIAN EXPLORER © 2025 | Reaching for the Stars</p>
+        </footer>
+    </div>
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 200; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
